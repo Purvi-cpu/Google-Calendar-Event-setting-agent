@@ -37,12 +37,7 @@ def get_services():
             json.loads(os.environ["GOOGLE_TOKEN_JSON"]), SCOPES
         )
 
-    if not creds or not creds.valid:
-        flow = InstalledAppFlow.from_client_config(
-            json.loads(os.environ["GOOGLE_OAUTH_JSON"]), SCOPES
-        )
-        creds = flow.run_local_server(port=0)
-
+   
         # Save token into env-style format (for next deploy)
         # print("SAVE THIS TOKEN IN RENDER ENV VAR:")
         # print(creds.to_json())
